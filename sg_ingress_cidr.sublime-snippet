@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[
+{ "IpProtocol" : "${1:[tcp|udp|ip]}", "FromPort" : "${2:-}", "ToPort" : "${3:-}", "CidrIp" : "${4:-}" }
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>security-group-ingress-cidr</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.json</scope>
+</snippet>

@@ -1,0 +1,45 @@
+<snippet>
+    <content><![CDATA[
+"${1:-}": {
+    "Type": "AWS::EC2::Instance",
+    "Properties": {
+        "KeyName": ${2:-},
+        "DisableApiTermination": "FALSE",
+        "ImageId": { 
+            "Fn::FindInMap": [
+            "AWSRegionAMIs",
+            {   
+              "Ref": "AWS::Region"
+            },
+            "BOTO"
+            ] 
+        },
+        "InstanceType": "t1.micro",
+        "Monitoring": "true",
+        "SecurityGroupIds" : [{ "Ref" : "SSH" }],
+        "Tags": [
+            {
+                "Key": "Name",
+                "Value": "BOTO-Host"
+            }
+        ],
+        "UserData": {
+            "Fn::Base64": {
+                "Fn::Join": [
+                    "",
+                    [
+                        "#!/bin/bash -ex",
+                        "\n",
+                        "easy_install -U boto 2>&1 | tee /root/boto_install.log",
+                        "\n"
+                    ]
+                ]
+            }
+        }
+}
+        }]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <!-- <tabTrigger>hello</tabTrigger> -->
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <!-- <scope>source.python</scope> -->
+</snippet>

@@ -1,0 +1,24 @@
+<snippet>
+    <content><![CDATA[
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters": {
+    
+    },
+    "Mappings": {
+
+    },
+    "Resources": {
+
+    },
+    "Outputs": {
+
+    }
+}
+    ]]>
+</content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>start</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.json</scope>
+</snippet>

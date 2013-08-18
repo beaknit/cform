@@ -1,0 +1,12 @@
+<snippet>
+    <content><![CDATA[
+"${1:-}": {
+    "Description": "${2:-}",
+    "Type": "${3:-}"
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>resource</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.json</scope>
+</snippet>

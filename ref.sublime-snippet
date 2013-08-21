@@ -1,7 +1,7 @@
 <snippet>
     <content><![CDATA[
 {
-    "Ref": "${1:-}"
+    "Ref": "${1:logicalName}"
 }
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->

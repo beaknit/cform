@@ -2,7 +2,8 @@
     <content><![CDATA[
 "${1:-}": {
     "Description": "${2:-}",
-    "Type": "${3:-}"
+    "Type": "${3:-}",
+    "Properties": "${4:-}"
 }
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->

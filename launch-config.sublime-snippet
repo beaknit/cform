@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-"${1:"launchConfigName"}: {
+"${1:launchConfigName}": {
     "Type" : "AWS::AutoScaling::LaunchConfiguration",
     "Properties" : {
         "IamInstanceProfile" : ${2:"--"},
@@ -14,7 +14,7 @@
                 {   "Fn::Join": [
                         "",
                         [
-                            #!/bin/bash -ex",
+                            "#!/bin/bash -ex",
                             "${8:-}"
                         ]
                     

@@ -1,0 +1,15 @@
+<snippet>
+    <content><![CDATA[
+"${1:routeTableName}": {
+  "Type": "AWS::EC2::RouteTable",
+  "Properties": {
+    "VpcId": ${2:"--"},
+    "Tags": [${3:"--"}]
+  }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>route-table</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.json</scope>
+</snippet>

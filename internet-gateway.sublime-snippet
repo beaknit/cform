@@ -1,0 +1,23 @@
+<snippet>
+    <content><![CDATA[
+"${1:igwName}": {
+  "Type": "AWS::EC2::InternetGateway",
+  "Properties": {
+    "Tags": [${2:"-"}]
+  }
+},
+"AttachGateway": {
+  "Type": "AWS::EC2::VPCGatewayAttachment",
+  "Properties": {
+    "VpcId": ${3:"--"},
+    "InternetGatewayId": {
+      "Ref": "${4:igwName}"
+    }
+  }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>internet-gateway</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.json</scope>
+</snippet>

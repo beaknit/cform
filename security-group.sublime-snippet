@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-"${1:-}" : {
+"${1:secGroupName}" : {
   "Type" : "AWS::EC2::SecurityGroup",
   "Properties" : {
     "GroupDescription" : "${2:-}",

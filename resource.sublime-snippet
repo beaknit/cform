@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-"${1:-}": {
+"${1:resourceName}": {
     "Description": "${2:-}",
     "Type": "${3:-}",
     "Properties": "${4:-}"

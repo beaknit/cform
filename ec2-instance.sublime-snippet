@@ -4,23 +4,15 @@
     "Type": "AWS::EC2::Instance",
     "Properties": {
         "KeyName": ${2:-},
-        "DisableApiTermination": "FALSE",
-        "ImageId": { 
-            "Fn::FindInMap": [
-            "AWSRegionAMIs",
-            {   
-              "Ref": "AWS::Region"
-            },
-            "BOTO"
-            ] 
-        },
-        "InstanceType": "t1.micro",
-        "Monitoring": "true",
-        "SecurityGroupIds" : [{ "Ref" : "SSH" }],
+        "DisableApiTermination": "${3:-}",
+        "ImageId": { ${4:-} },
+        "InstanceType": "${5:-}",
+        "Monitoring": "${5:true|false}",
+        "SecurityGroupIds" : [${6:-}],
         "Tags": [
             {
-                "Key": "Name",
-                "Value": "BOTO-Host"
+                "Key": "${7:-}",
+                "Value": "${8:-}"
             }
         ],
         "UserData": {
@@ -29,9 +21,7 @@
                     "",
                     [
                         "#!/bin/bash -ex",
-                        "\n",
-                        "easy_install -U boto 2>&1 | tee /root/boto_install.log",
-                        "\n"
+                        "${9:-}"
                     ]
                 ]
             }
@@ -39,7 +29,7 @@
 }
         }]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-    <!-- <tabTrigger>hello</tabTrigger> -->
+    <tabTrigger>ec2-instance</tabTrigger>
     <!-- Optional: Set a scope to limit where the snippet will trigger -->
-    <!-- <scope>source.python</scope> -->
+    <scope>source.json</scope>
 </snippet>

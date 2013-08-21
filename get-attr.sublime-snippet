@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[
+{ "Fn::GetAtt" : [ "${1:logicalNameOfResource}", "${2:attributeName}" ]}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>get-attr</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.json</scope>
+</snippet>

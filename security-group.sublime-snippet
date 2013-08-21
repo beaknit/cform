@@ -5,7 +5,7 @@
   "Properties" : {
     "GroupDescription" : "${2:-}",
     "SecurityGroupIngress" : [ 
-      --insert rules--
+      ${3:--insert rules--}
     ]
   }
 }

@@ -1,0 +1,15 @@
+<snippet>
+    <content><![CDATA[
+"${1:name}": {
+  "Type": "AWS::EC2::VPC",
+  "Properties": {
+    "CidrBlock": ${2:"----/--"},
+    "Tags": [${3:-}]
+  }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>vpc</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.json</scope>
+</snippet>

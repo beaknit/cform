@@ -1,0 +1,31 @@
+<snippet>
+    <content><![CDATA[
+"${1:"launchConfigName"}: {
+    "Type" : "AWS::AutoScaling::LaunchConfiguration",
+    "Properties" : {
+        "IamInstanceProfile" : ${2:"--"},
+        "ImageId" : ${3:"--"},
+        "InstanceMonitoring" : ${4:"--"},
+        "InstanceType" : "${5:--}",
+        "KeyName" : ${6:"--"},
+        "SecurityGroups" : [ ${7:"--"} ],
+        "UserData" : {
+            "Fn::Base64": 
+                {   "Fn::Join": [
+                        "",
+                        [
+                            #!/bin/bash -ex",
+                            "${8:-}"
+                        ]
+                    
+                    ]                 
+                }
+        }
+    }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>launch-config</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.json</scope>
+</snippet>

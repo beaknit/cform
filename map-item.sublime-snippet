@@ -1,6 +1,5 @@
 <snippet>
     <content><![CDATA[
-,
 "${1:selector}": {
 "${2:key}": "${3:val}"
 }

@@ -1,0 +1,17 @@
+<snippet>
+    <content><![CDATA[
+"${1:subnetName}": {
+  "Type": "AWS::EC2::Subnet",
+  "Properties": {
+    "AvailabilityZone": ${2:"-"},
+    "VpcId": ${3:"-"},
+    "CidrBlock": ${4:"-"},
+    "Tags": [${5:"-"}]
+  }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>subnet</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.json</scope>
+</snippet>

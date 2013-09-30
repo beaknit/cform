@@ -5,7 +5,7 @@ A sublime plugin for CloudFormation
 
 # Setup
 
-To use, cd to your `Sublime Text 2/Packages/User` dir and clone this repo.
+To use, cd to your `Sublime Text 2/Packages/User` dir and clone this repo.  The location of the User Packages directory for various operating systems is: http://sublimetext.info/docs/en/basic_concepts.html
 
 To remove, simply rm -rf the `cform` directory that was created by the clone.
 

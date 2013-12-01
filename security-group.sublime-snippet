@@ -6,7 +6,9 @@
     "GroupDescription" : "${2:-}",
     "SecurityGroupIngress" : [ 
       ${3:--insert rules--}
-    ]
+    ],
+    "VpcId" : ${4:ref-to-vpc},
+    "Tags" :  [ ${5:insert tag} ]
   }
 }
 ]]></content>

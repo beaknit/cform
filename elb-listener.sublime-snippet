@@ -1,0 +1,13 @@
+<snippet>
+    <content><![CDATA[
+{
+   "InstancePort" : "${1:-}",
+   "InstanceProtocol" : "${2:HTTP|HTTPS|TCP|SSL}",
+   "LoadBalancerPort" : "${3:-}",
+   "Protocol" : "${4:HTTP|HTTPS|TCP|SSL}"
+}]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>elb-listener</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.json</scope>
+</snippet>

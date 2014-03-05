@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-"${1:asgName}" : {
+"${1:-}" : {
     "Type" : "AWS::AutoScaling::AutoScalingGroup",
     "Properties" : {
         "AvailabilityZones" : [${2:"--"}],

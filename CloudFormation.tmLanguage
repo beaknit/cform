@@ -4,7 +4,6 @@
 <dict>
     <key>fileTypes</key>
     <array>
-        <string>json</string>
         <string>template</string>
         <string>cloudformation</string>
         <string>cform</string>

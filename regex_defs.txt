@@ -1,9 +1,0 @@
-AWS Functions:
-\w*::\w*
-\w+::\w+::\w+
-
-CF Section Headers:
-Parameters|Mappings|Resources|Outputs|Description|AWSTemplateFormatVersion
-
-Object Characteristics:
-Type|Properties

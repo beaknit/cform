@@ -1,0 +1,163 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: CloudFormation
+scopeName: source.cloudformation
+fileTypes: [cform,template,cloudformation]
+uuid: c16c4a59-fabd-4f51-a0a0-d8b306124516
+
+patterns:
+- include: '#value'
+
+repository:
+  array:
+    name: meta.structure.array.json
+    begin: \[
+    beginCaptures:
+      '0': {name: punctuation.definition.array.begin.json}
+    end: \]
+    endCaptures:
+      '0': {name: punctuation.definition.array.end.json}
+    patterns:
+    - include: '#value'
+    - name: punctuation.separator.array.json
+      match: ','
+    - name: invalid.illegal.expected-array-separator.json
+      match: '[^\s\]]'
+
+  comments:
+    patterns:
+    - name: comment.block.documentation.json
+      begin: /\*\*
+      end: \*/
+      captures:
+        '0': {name: punctuation.definition.comment.json}
+    - name: comment.block.json
+      begin: /\*
+      end: \*/
+      captures:
+        '0': {name: punctuation.definition.comment.json}
+    - name: comment.line.double-slash.js
+      match: (//).*$\n?
+      captures:
+        '1': {name: punctuation.definition.comment.json}
+
+  constant:
+    name: constant.language.json
+    match: \b(?:true|false|null)\b
+
+  number:
+    comment: handles integer and decimal numbers
+    name: constant.numeric.json
+    match: "(?x:         # turn on extended mode\n\t\t\t             -?         #\
+      \ an optional minus\n\t\t\t             (?:\n\t\t\t               0        #\
+      \ a zero\n\t\t\t               |        # ...or...\n\t\t\t               [1-9]\
+      \    # a 1-9 character\n\t\t\t               \\d*      # followed by zero or\
+      \ more digits\n\t\t\t             )\n\t\t\t             (?:\n\t\t\t        \
+      \       (?:\n\t\t\t                 \\.     # a period\n\t\t\t             \
+      \    \\d+    # followed by one or more digits\n\t\t\t               )?\n\t\t\
+      \t               (?:\n\t\t\t                 [eE]   # an e character\n\t\t\t\
+      \                 [+-]?  # followed by an option +/-\n\t\t\t               \
+      \  \\d+    # followed by one or more digits\n\t\t\t               )?       #\
+      \ make exponent optional\n\t\t\t             )?         # make decimal portion\
+      \ optional\n\t\t\t           )"
+
+  object:
+    comment: a JSON object
+    name: meta.structure.dictionary.json
+    begin: \{
+    beginCaptures:
+      '0': {name: punctuation.definition.dictionary.begin.json}
+    end: \}
+    endCaptures:
+      '0': {name: punctuation.definition.dictionary.end.json}
+    patterns:
+    - comment: the JSON object key
+      include: '#string'
+    - include: '#comments'
+    - name: meta.structure.dictionary.value.json
+      begin: ':'
+      beginCaptures:
+        '0': {name: punctuation.separator.dictionary.key-value.json}
+      end: (,)|(?=\})
+      endCaptures:
+        '1': {name: punctuation.separator.dictionary.pair.json}
+      patterns:
+      - comment: the JSON object value
+        include: '#value'
+      - name: invalid.illegal.expected-dictionary-separator.json
+        match: '[^\s,]'
+    - name: invalid.illegal.expected-dictionary-separator.json
+      match: '[^\s\}]'
+
+  string:
+    name: string.quoted.double.json
+    begin: '"'
+    beginCaptures:
+      '0': {name: punctuation.definition.string.begin.json}
+    end: '"'
+    endCaptures:
+      '0': {name: punctuation.definition.string.end.json}
+    patterns:
+    - include: '#aws'
+    - name: constant.character.escape.json
+      match: |-
+        (?x:                # turn on extended mode
+                             \\                # a literal backslash
+                             (?:               # ...followed by...
+                               ["\\/bfnrt]     # one of these characters
+                               |               # ...or...
+                               u               # a u
+                               [0-9a-fA-F]{4}  # and four hex digits
+                             )
+                           )
+    - name: invalid.illegal.unrecognized-string-escape.json
+      match: \\.
+
+  aws:
+    comment: "AWS-specific objects"
+    patterns:
+    - name: constant.language.cloudformation
+      match: \w*::\w*
+    - name: constant.other.cloudformation
+      match: Ref|Tags|Key|Value
+    - name: keyword.other.cloudformation
+      match: Parameters|Mappings|Resources|Outputs|Description|AWSTemplateFormatVersion
+    - name: keyword.other.cloudformation
+      match: Description|Type|Default|Properties
+    - name: variable.parameter
+      match: String|Number|CommaDelimitedList
+
+  value:
+    comment: "the 'value' diagram at http://json.org"
+    patterns:
+    - include: '#constant'
+    - include: '#number'
+    - include: '#string'
+    - include: '#array'
+    - include: '#object'
+    - include: '#comments'
+    - include: '#aws'
+foldingStartMarker: |-
+  (?x:       # turn on extended mode
+                            ^        # a line beginning with
+                            \s*      # some optional space
+                            [{\[]    # the start of an object or array
+                            (?!      # but not followed by
+                              .*     # whatever
+                              [}\]]  # and the close of an object or array
+                              ,?     # an optional comma
+                              \s*    # some optional space
+                              $      # at the end of the line
+                            )
+                            |        # ...or...
+                            [{\[]    # the start of an object or array
+                            \s*      # some optional space
+                            $        # at the end of the line
+                          )
+foldingStopMarker: |-
+  (?x:     # turn on extended mode
+                           ^      # a line beginning with
+                           \s*    # some optional space
+                           [}\]]  # and the close of an object or array
+                         )
+keyEquivalent: ^~J

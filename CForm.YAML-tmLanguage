@@ -119,8 +119,10 @@ repository:
     - name: constant.language.cloudformation
       match: \w*::\w*
     - name: constant.other.cloudformation
-      match: Ref|Tags|Key|Value
-    - name: keyword.other.cloudformation
+      match: \b(Ref)\b
+    - name: entity.name.function.cloudformation
+      match: Tags|Key|\b(Value)\b  
+    - name: entity.other.attribute-name.cloudformation
       match: Parameters|Mappings|Resources|Outputs|Description|AWSTemplateFormatVersion
     - name: keyword.other.cloudformation
       match: Description|Type|Default|Properties

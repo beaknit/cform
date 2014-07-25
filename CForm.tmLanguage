@@ -102,15 +102,21 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>Ref|Tags|Key|Value</string>
+					<string>\b(Ref)\b</string>
 					<key>name</key>
 					<string>constant.other.cloudformation</string>
 				</dict>
 				<dict>
 					<key>match</key>
+					<string>Tags|Key|\b(Value)\b</string>
+					<key>name</key>
+					<string>entity.name.function.cloudformation</string>
+				</dict>
+				<dict>
+					<key>match</key>
 					<string>Parameters|Mappings|Resources|Outputs|Description|AWSTemplateFormatVersion</string>
 					<key>name</key>
-					<string>keyword.other.cloudformation</string>
+					<string>entity.other.attribute-name.cloudformation</string>
 				</dict>
 				<dict>
 					<key>match</key>

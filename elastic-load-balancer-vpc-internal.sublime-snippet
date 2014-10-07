@@ -6,7 +6,13 @@
       "Listeners" : [ ${2:-} ],
       "Scheme" : "internal",
       "SecurityGroups" : [ ${3:-} ],
-      "Subnets" : [ ${4:-} ]
+      "Subnets" : [ ${4:-} ],
+      "Tags": [
+            {
+              "Key": "${5:-}",
+              "Value": "${6:-}"
+            }
+      ]
    }
 }]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->

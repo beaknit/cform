@@ -4,7 +4,13 @@
    "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
    "Properties": {
       "AvailabilityZones" : [ "${2:-}" ],
-      "Listeners" : [ ${3:-} ]
+      "Listeners" : [ ${3:-} ],
+      "Tags": [
+            {
+              "Key": "${4:-}",
+              "Value": "${5:-}"
+            }
+      ]
    }
 }]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->

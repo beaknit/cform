@@ -114,7 +114,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>us-east-[\d]\w*|us-west-[\d]\w*|eu-west-[\d]\w*|ap-southeast-[\d]\w*|ap-northeast-[\d]\w*|sa-east-[\d]\w*</string>
+					<string>us-east-[\d]\w*|us-west-[\d]\w*|eu-west-[\d]\w*|eu-central-[\d]\w*|ap-southeast-[\d]\w*|ap-northeast-[\d]\w*|sa-east-[\d]\w*</string>
 					<key>name</key>
 					<string>keyword.control.cloudformation</string>
 				</dict>

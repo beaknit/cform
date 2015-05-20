@@ -3,7 +3,7 @@
 "${1:s3BucketPolicy}": {
 	"Type": "AWS::S3::BucketPolicy",
 	"Properties": {
-		"Bucket" : ${2},
+		"Bucket" : "${2}",
 		"PolicyDocument" : {${3}}
 	}
 }

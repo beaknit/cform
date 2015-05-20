@@ -1,0 +1,26 @@
+<snippet>
+	<content><![CDATA[
+"${1:route53RS}": {
+	"Type": "AWS::Route53::RecordSet",
+	"Properties": {
+		"Name": "${2}",
+		"Type": "${3:A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT}",
+		"AliasTarget": {${4}},
+		"Comment": "${5}",
+		"Failover": "${6}",
+		"GeoLocation": {${7}},
+		"HealthCheckId": "${8}",
+		"HostedZoneId": "${9}",
+		"HostedZoneName": "${10}",
+		"Region": "${11}",
+		"ResourceRecords": [ "${12}" ],
+		"SetIdentifier": "${13}",
+		"TTL": "${14}",
+		"Weight": "${15}"
+	}
+}
+]]></content>
+    <tabTrigger>route53-recordset</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

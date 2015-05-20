@@ -12,13 +12,6 @@
 		"WebsiteConfiguration": {${8}},
 		"Tags": [${9}] 
 	}
-},
-"${1}Policy": {
-	"Type": "AWS::S3::BucketPolicy",
-	"Properties": {
-		"Bucket" : { "Ref" : "${1}"},
-		"PolicyDocument" : {${10}}
-	}
 }
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->

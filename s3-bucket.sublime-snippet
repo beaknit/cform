@@ -1,0 +1,28 @@
+<snippet>
+	<content><![CDATA[
+"${1:s3Bucket}": {
+	"Type": "AWS::S3::Bucket",
+	"Properties": {
+		"AccessControl": "${2:Private | PublicRead | PublicReadWrite | AuthenticatedRead | LogDeliveryWrite | BucketOwnerRead | BucketOwnerFullControl}",
+		"BucketName": "${3}",
+		"CorsConfiguration": {${4}},
+		"LifecycleConfiguration": {${5}},
+		"NotificationConfiguration": {${6}},
+		"VersioningConfiguration": {${7}},
+		"WebsiteConfiguration": {${8}},
+		"Tags": [${9}] 
+	}
+},
+"${1}Policy": {
+	"Type": "AWS::S3::BucketPolicy",
+	"Properties": {
+		"Bucket" : { "Ref" : "${1}"},
+		"PolicyDocument" : {${10}}
+	}
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>s3-bucket</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

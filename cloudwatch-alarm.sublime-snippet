@@ -1,0 +1,28 @@
+<snippet>
+    <content><![CDATA[
+"${1:cloudWatchAlarm}": {
+   "Type": "AWS::CloudWatch::Alarm",
+   "Properties": {
+      "MetricName": "${2}",
+      "Namespace": "${3}",
+      "ComparisonOperator": "${4}",
+      "EvaluationPeriods": "${5}",
+      "Period": "${6}",
+      "Statistic": "${7}",
+      "Threshold": "${8}",
+      "ActionsEnabled": "${9:true | false}",
+      "AlarmActions": [ "${10}" ],
+      "AlarmDescription": "${11}",
+      "AlarmName": "${12}",
+      "Dimensions": [ "${13}" ],
+      "InsufficientDataActions": [ "${14}" ],
+      "OKActions": [ "${15}" ],
+      "Unit": "${16}"
+   }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>cloudwatch-alarm</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

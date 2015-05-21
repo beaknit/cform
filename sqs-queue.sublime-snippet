@@ -1,0 +1,20 @@
+<snippet>
+    <content><![CDATA[
+"${1:sqsQueue}": {
+   "Type": "AWS::SQS::Queue",
+   "Properties": {
+      "DelaySeconds": "${2}",
+      "MaximumMessageSize": "${3}",
+      "MessageRetentionPeriod": "${4}",
+      "QueueName": "${5}",
+      "ReceiveMessageWaitTimeSeconds": "${6}",
+      "RedrivePolicy": {${7}},
+      "VisibilityTimeout": "${8}"
+   }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>sqs-queue</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

@@ -1,0 +1,15 @@
+<snippet>
+    <content><![CDATA[
+"${1:sqsQueuePolicy}": {
+   "Type": "AWS::SQS::QueuePolicy",
+   "Properties": {
+      "PolicyDocument": {${2}},
+      "Queues": [ ${3} ]
+   }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>sqs-queuepolicy</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

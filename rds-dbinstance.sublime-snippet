@@ -1,0 +1,44 @@
+<snippet>
+    <content><![CDATA[
+"${1:rdsDBInstance}": {
+  "Type": "AWS::RDS::DBInstance",
+  "Properties": {
+    "AllocatedStorage": "${2}",
+    "DBInstanceClass": "${3}",
+    "AllowMajorVersionUpgrade": "${4:true | false}",
+    "AutoMinorVersionUpgrade": "${5:true | false}",
+    "AvailabilityZone": "${6}",
+    "BackupRetentionPeriod": "${7}",
+    "CharacterSetName": "${8}",
+    "DBInstanceIdentifier": "${9}",
+    "DBName": "${10}",
+    "DBParameterGroupName": "${11}",
+    "DBSecurityGroups": [ "${12}" ],
+    "DBSnapshotIdentifier": "${13}",
+    "DBSubnetGroupName": "${14}",
+    "Engine": "${15}",
+    "EngineVersion": "${16}",
+    "Iops": "${17}",
+    "KmsKeyId": "${18}",
+    "LicenseModel": "${19}",
+    "MasterUsername": "${20}",
+    "MasterUserPassword": "${21}",
+    "MultiAZ": "${22:true | false}",
+    "OptionGroupName": "${23}",
+    "Port": "${24}",
+    "PreferredBackupWindow": "${25}",
+    "PreferredMaintenanceWindow": "${26}",
+    "PubliclyAccessible": "${27:true | false}",
+    "SourceDBInstanceIdentifier": "${28}",
+    "StorageEncrypted": "${29:true | false}",
+    "StorageType": "${30}",
+    "Tags": [ ${31} ],
+    "VPCSecurityGroups": [ "${32}" ]
+  }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>rds-dbinstance</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

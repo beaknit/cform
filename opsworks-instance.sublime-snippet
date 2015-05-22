@@ -1,0 +1,26 @@
+<snippet>
+    <content><![CDATA[
+"${1:opsworksInstance}": {
+  "Type": "AWS::OpsWorks::Instance",
+  "Properties": {
+    "InstanceType": "${2}",
+    "LayerIds":  [ "${3}" ],
+    "StackId": "${4}",
+    "AmiId": "${5}",
+    "Architecture": "${6}",
+    "AutoScalingType": "${7}",
+    "AvailabilityZone": "${8}",
+    "InstallUpdatesOnBoot": "${9:true | false}",
+    "Os": "${10}",
+    "RootDeviceType": "${11}",
+    "SshKeyName": "${12}",
+    "SubnetId": "${13}",
+    "TimeBasedAutoScaling": { ${14} }
+  }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>opsworks-instance</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

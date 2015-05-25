@@ -1,0 +1,16 @@
+<snippet>
+	<content><![CDATA[
+"${1:logsMetricFilter}": {
+  "Type": "AWS::Logs::MetricFilter",    
+  "Properties": {
+    "FilterPattern": [ "${2}" ],
+    "LogGroupName": "${3}",
+    "MetricTransformations": [ ${4} ]
+  }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>logs-metricfilter</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

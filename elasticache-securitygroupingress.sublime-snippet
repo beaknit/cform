@@ -1,0 +1,17 @@
+<snippet>
+	<content><![CDATA[
+"${1:elasticacheSecurityGroupIngress}": {
+  "Type": "AWS::ElastiCache::SecurityGroupIngress",
+  "Properties":
+  {
+    "CacheSecurityGroupName": "${2}",
+    "EC2SecurityGroupName": "${3}",
+    "EC2SecurityGroupOwnerId": "${4}"
+  }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>elasticache-securitygroupingress</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

@@ -1,0 +1,33 @@
+<snippet>
+	<content><![CDATA[
+"${1:elasticacheCacheCluster}": {
+   "Type": "AWS::ElastiCache::CacheCluster",
+   "Properties":
+   {
+      "AutoMinorVersionUpgrade": "${2:true | false}",
+      "AZMode": "${3}",
+      "CacheNodeType": "${4}",
+      "CacheParameterGroupName": "${5}",
+      "CacheSecurityGroupNames": [ "${6}" ],
+      "CacheSubnetGroupName": "${7}",
+      "ClusterName": "${8}",
+      "Engine": "${9}",
+      "EngineVersion": "${10}",
+      "NotificationTopicArn": "${11}",
+      "NumCacheNodes": "${12}",
+      "Port": "${13}",
+      "PreferredAvailabilityZone": "${14}",
+      "PreferredAvailabilityZones": [ "${15}" ],
+      "PreferredMaintenanceWindow": "${16}",
+      "SnapshotArns": ["${17}" ],
+      "SnapshotRetentionLimit": "${18}",
+      "SnapshotWindow": "${19}",
+      "VpcSecurityGroupIds": [ "${20}" ]
+   }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>elasticache-cachecluster</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

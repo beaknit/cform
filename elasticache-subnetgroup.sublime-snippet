@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[
+"${1:elasticacheSubnetGroup}": {
+    "Type": "AWS::ElastiCache::SubnetGroup",
+    "Properties": {
+        "Description": "${2}",
+        "SubnetIds": [ "${3}" ]
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>elasticache-subnetgroup</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

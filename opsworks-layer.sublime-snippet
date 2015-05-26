@@ -1,0 +1,28 @@
+<snippet>
+    <content><![CDATA[
+"${1:opsworksLayer}": {
+  "Type": "AWS::OpsWorks::Layer",
+  "Properties": {
+  	"AutoAssignElasticIps": "${2:true | false}",
+    "AutoAssignPublicIps": "${3:true | false}",
+    "EnableAutoHealing": "${4:true | false}",
+    "Name": "${5}",
+    "Shortname": "${6}",
+    "StackId": "${7}",
+    "Type": "${8}",
+    "Attributes": { "${9}":"${10}" },
+    "CustomInstanceProfileArn": "${11}",
+    "CustomRecipes": ${12},
+    "CustomSecurityGroupIds":  [ "${13}" ],
+    "InstallUpdatesOnBoot": "${14:true | false}",
+    "LoadBasedAutoScaling": { ${15} },
+    "Packages": [ "${16}" ],
+    "VolumeConfigurations": [ ${17} ]
+  }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>opsworks-layer</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

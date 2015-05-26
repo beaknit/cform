@@ -1,0 +1,30 @@
+<snippet>
+    <content><![CDATA[
+"${1:opsworksStack}": {
+  "Type": "AWS::OpsWorks::Stack",
+  "Properties": {
+    "DefaultInstanceProfileArn": "${2}",
+    "Name": "${3}",
+    "ServiceRoleArn": "${4}",
+    "Attributes": { "${5}":"${6}" },
+    "ChefConfiguration": { ${7} },
+    "ConfigurationManager": { ${8} },
+    "CustomCookbooksSource": { ${9} },
+    "CustomJson": { ${10} },
+    "DefaultAvailabilityZone": "${11}",
+    "DefaultOs": "${12}",
+    "DefaultRootDeviceType": "${13}",
+    "DefaultSshKeyName": "${14}",
+    "DefaultSubnetId": "${15}",
+    "HostnameTheme": "${16}",
+    "UseCustomCookbooks": "${17:true | false}",
+    "UseOpsworksSecurityGroups": "${18:true | false}",
+    "VpcId": "${19}"
+  }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>opsworks-stack</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

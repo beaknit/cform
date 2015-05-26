@@ -1,0 +1,17 @@
+<snippet>
+    <content><![CDATA[
+"${1:rdsDBSecurityGroup}": {
+   "Type": "AWS::RDS::DBSecurityGroup",
+   "Properties": {
+      "EC2VpcId": { ${2} },
+      "DBSecurityGroupIngress": [ ${3} ],
+      "GroupDescription": "${4}",
+      "Tags": [ ${5} ]
+   }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>rds-dbsecuritygroup</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

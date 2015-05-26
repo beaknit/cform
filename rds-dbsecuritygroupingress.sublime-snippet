@@ -1,0 +1,15 @@
+<snippet>
+    <content><![CDATA[
+{
+   "CIDRIP": "${1}",
+   "DBSecurityGroupName": "${2}",
+   "EC2SecurityGroupId": "${3}",
+   "EC2SecurityGroupName": "${4}",
+   "EC2SecurityGroupOwnerId": "${5}"
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>rds-dbsecuritygroupingress</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

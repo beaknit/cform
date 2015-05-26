@@ -1,0 +1,18 @@
+<snippet>
+    <content><![CDATA[
+"${1:rdsEventSubscription}": {
+  "Type": "AWS::RDS::EventSubscription",
+  "Properties": {
+    "Enabled": "${2:true | false}",
+    "EventCategories": [ "${3}" ],
+    "SnsTopicArn": "${4}",
+    "SourceIds": [ "${5}" ],
+    "SourceType ": "${6}"
+  }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>rds-eventsubscription</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

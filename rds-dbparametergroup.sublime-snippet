@@ -1,0 +1,17 @@
+<snippet>
+    <content><![CDATA[
+"${1:rdsDBParameterGroup}": {
+   "Type": "AWS::RDS::DBParameterGroup",
+   "Properties": {
+      "Description": "${2}",
+      "Family": "${3}",
+      "Parameters": {${4}},
+      "Tags": [ ${5} ]
+   }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>rds-dbparametergroup</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

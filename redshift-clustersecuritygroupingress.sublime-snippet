@@ -1,0 +1,17 @@
+<snippet>
+    <content><![CDATA[
+"${1:redshiftClusterSecurityGroupIngress}": {
+  "Type": "AWS::Redshift::ClusterSecurityGroupIngress",
+  "Properties": {
+    "ClusterSecurityGroupName": "${2}",
+    "CIDRIP": "${3}",
+    "EC2SecurityGroupName": "${4}",
+    "EC2SecurityGroupOwnerId": "${5}"
+  }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>redshift-clustersecuritygroupingress</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

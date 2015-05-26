@@ -1,0 +1,37 @@
+<snippet>
+    <content><![CDATA[
+"${1:redshiftCluster}": {
+  "Type": "AWS::Redshift::Cluster",
+  "Properties": {
+    "AllowVersionUpgrade": "${2:true | false}",
+    "AutomatedSnapshotRetentionPeriod": "${3}",
+    "AvailabilityZone": "${4}",
+    "ClusterParameterGroupName": "${5}",
+    "ClusterSecurityGroups": [ "${6}" ],
+    "ClusterSubnetGroupName": "${7}",
+    "ClusterType": "${8}",
+    "ClusterVersion": "${9}",
+    "DBName": "${10}",
+    "ElasticIp": "${11}",
+    "Encrypted": "${12:true | false}",
+    "HsmClientCertificateIdentifier": "${13}",
+    "HsmConfigurationIdentifier": "${14}",
+    "MasterUsername": "${15}",
+    "MasterUserPassword": "${16}",
+    "NodeType": "${17}",
+    "NumberOfNodes": "${18}",
+    "OwnerAccount": "${19}",
+    "Port": "${20}",
+    "PreferredMaintenanceWindow": "${21}",
+    "PubliclyAccessible": "${22:true | false}",
+    "SnapshotClusterIdentifier": "${23}",
+    "SnapshotIdentifier": "${24}",
+    "VpcSecurityGroupIds": [ "${25}" ]
+  }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>redshift-cluster</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

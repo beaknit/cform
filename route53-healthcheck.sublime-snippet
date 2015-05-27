@@ -1,0 +1,15 @@
+<snippet>
+    <content><![CDATA[
+"${1:route53HealthCheck}": {
+  "Type": "AWS::Route53::HealthCheck",
+  "Properties": {
+    "HealthCheckConfig": { ${2} },
+    "HealthCheckTags": [ ${3} ]
+  }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>route53-healthcheck</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

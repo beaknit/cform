@@ -1,0 +1,22 @@
+<snippet>
+    <content><![CDATA[
+"${1:elasticbeanstalkEnvironment}": {
+   "Type": "AWS::ElasticBeanstalk::Environment",
+   "Properties": {
+      "ApplicationName": "${2}",
+      "CNAMEPrefix": "${3}",
+      "Description":  "${4}",
+      "EnvironmentName":  "${5}",
+      "OptionSettings": [ ${6} ],
+      "SolutionStackName": "${7}",
+      "TemplateName": "${8}",
+      "Tier": "${9}",
+      "VersionLabel": "${10}"
+   }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>elasticbeanstalk-environment</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

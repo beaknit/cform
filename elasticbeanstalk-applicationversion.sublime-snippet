@@ -1,0 +1,16 @@
+<snippet>
+    <content><![CDATA[
+"${1:elasticbeanstalkApplicationVersion}": {
+  "Type": "AWS::ElasticBeanstalk::ApplicationVersion",
+  "Properties": {
+    "ApplicationName": "${2}",
+    "Description": "${3}",
+    "SourceBundle": { ${4} }
+  }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>elasticbeanstalk-applicationversion</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

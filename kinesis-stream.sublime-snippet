@@ -1,0 +1,14 @@
+<snippet>
+    <content><![CDATA[
+"${1:kinesisStream}": {
+   "Type": "AWS::Kinesis::Stream",
+   "Properties": {
+      "ShardCount": "${2}"
+   }
+}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>kinesis-stream</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

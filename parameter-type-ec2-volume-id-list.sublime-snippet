@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[
+List<AWS::EC2::Volume::Id>
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>parameter-type-ec2-volume-id-list</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[
+"AWS::CloudFormation::Authentication": {
+  "${1:AccessCreds}": {
+    "type": "${2}",
+    "buckets": [ "${3}" ],
+    "roleName": "${4}",
+    "accessKeyId": "${5}",
+    "secretKey": "${6}",
+    "uris": [ "${7}" ],
+    "username": "${8}",
+    "password": "${9}"
+  }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>cloudformation-authentication</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.cloudformation</scope>
+</snippet>

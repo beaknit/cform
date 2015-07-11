@@ -119,9 +119,7 @@ repository:
     - name: constant.language.cloudformation
       match: \w*::\w*
     - name: constant.other.cloudformation
-      match: \b(Ref)\b 
-    - name: invalid.illegal.cloudformation
-      match: Metadata|Parameters|Mappings|Conditions|Resources|Outputs|AWSTemplateFormatVersion
+      match: \b(Ref)\b
     - name: keyword.control.cloudformation
       match: us-east-[\d]\w*|us-west-[\d]\w*|eu-west-[\d]\w*|eu-central-[\d]\w*|ap-southeast-[\d]\w*|ap-northeast-[\d]\w*|sa-east-[\d]\w*
     - name: keyword.other.cloudformation

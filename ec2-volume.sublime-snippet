@@ -15,7 +15,7 @@
                 "Value": "${9:-}"
             }
         ],
-      "VolumeType" : ${10:standard|io1|gp2}
+      "VolumeType" : "${10:standard|io1|gp2}"
    }
 }
 ]]></content>

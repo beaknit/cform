@@ -3,7 +3,14 @@
 """Templating operations for the snippets created by the build script."""
 
 
+import sys
+
+
 def build_with_template(trigger, title, body):
+    """With all args give, transform body with param list and return a complete snippet."""
+
+    processed_body = """"${{1:-}}" : {}""".format((body[0]).text_content())
+
     template = """
     <snippet>
         <content><![CDATA[{}]]></content>
@@ -12,6 +19,6 @@ def build_with_template(trigger, title, body):
         <!-- Optional: Set a scope to limit where the snippet will trigger -->
         <scope>source.cloudformation</scope>
     </snippet>
-    """.format(body, title)
+    """.format(processed_body, title)
 
     return template

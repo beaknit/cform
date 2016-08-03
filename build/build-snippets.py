@@ -2,7 +2,7 @@
 # vim: ai ts=4 sts=4 et sw=4
 """Build snippets from documentation from AWS."""
 import requests
-import collections
+from collections import OrderedDict
 from templating import build_with_template
 from lxml import html
 
@@ -17,7 +17,7 @@ def build_index():
     page = requests.get(toc_uri)
     doc = html.fromstring(page.text.decode('utf-8'))
     tree = doc.xpath(elem_expr)
-    index = collections.OrderedDict()
+    index = OrderedDict()
 
     for e in tree:
             arn = e.text_content()

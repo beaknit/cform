@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 # vim: ai ts=4 sts=4 et sw=4
 """Build snippets from documentation from AWS."""
+from __future__ import unicode_literals
 import requests
+# import sys
 from collections import OrderedDict
 from templating import build_with_template
 from lxml import html
@@ -36,7 +38,8 @@ def generate(index):
     for k, v in index.iteritems():
         (arn, title, href, full_href) = v
         snippet = createSnippet(arn, title, href, full_href)
-        writeToOutput(arn, snippet)
+        writeToOutput(title, snippet)
+        # sys.exit(0)
 
 
 def createSnippet(arn, title, href, full_href):
@@ -61,16 +64,21 @@ def safedebug(index, k):
     print snippet
 
 
-def writeToOutput(arn, snippet):
+def writeToOutput(title, snippet):
     """Write the snippet to the output folder."""
+    default_folder = "./output/"
     default_suffix = ".sublime-snippet"
+    filename = default_folder + title + default_suffix
+    out = file(filename, 'w')
+    out.write(snippet.encode('utf8', 'replace'))
+    out.close()
 
 
 def main():
     """Main doc generation."""
     index = build_index()
-    # generate(index)
-    safedebug(index, 'AWS::SSM::Document')
+    generate(index)
+    # safedebug(index, 'AWS::SSM::Document')
 
 if __name__ == "__main__":
     main()

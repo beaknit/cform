@@ -17,7 +17,7 @@ CForm is now available via the Sublime Text package control.  See https://packag
 6.  Save it with the extension `cform`, `template` or `cloudformation` and run it through the CloudFormation console
 7.  Profit
 
-# Update the snippets
+# Updating the snippets
 
 ## Requirements
 

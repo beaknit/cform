@@ -61,12 +61,12 @@ def generate(index):
     progress.update(i, 'Generating snippets')
     for k, v in index.iteritems():
         (arn, title, href, full_href) = v
-        snippet = createSnippet(arn, title, href, full_href)
+        # snippet = createSnippet(arn, title, href, full_href)
         i += 1
         percent = i * 100 / total
         progress.update(percent, 'Creating ' + Fore.GREEN + arn)
-        writeToOutput(title, snippet)
-    progress.update(percent, 'Generation completed')
+        # writeToOutput(title, snippet)
+    progress.update(percent, 'Snippets completed')
 
 
 def createSnippet(arn, title, href, full_href):
@@ -117,11 +117,11 @@ def generate_functions():
                     ]
     i = 0
     percent = 0
+    total = len(toc_functions)
+    print('    Functions found: ' + Fore.GREEN + str(total))
+
     progress = ProgressBar()
     progress.update(i, 'Generating functions')
-    total = len(toc_functions)
-
-    print('    Functions found: ' + Fore.GREEN + str(total))
 
     for v in toc_functions:
         (arn, title, body, href, full_href) = v
@@ -130,7 +130,7 @@ def generate_functions():
         percent = i * 100 / total
         progress.update(percent, 'Creating ' + Fore.GREEN + arn)
 
-    progress.update(percent, 'Generation completed')
+    progress.update(percent, 'Functions generated.')
 
 
 def main():

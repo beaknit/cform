@@ -32,4 +32,8 @@ def build_with_template(trigger, title, body, full_href):
 
 def transform(template):
     """Transform the template to adapt the parameters of the template."""
-    return template.replace('JSON object', '[]')
+    return template \
+        .replace('JSON object', '[]') \
+        .replace(': String', '""') \
+        .replace(': Integer', '')
+        .replace(': Boolean', '${true | false}')

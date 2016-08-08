@@ -12,7 +12,10 @@ def build_with_template(trigger, title, body, full_href):
     With all args give, transform body with param list and return
     a complete snippet.
     """
-    processed_body = """"${{1:-}}" : {}""".format((body[0]).text_content())
+    if (isinstance(body, list)):
+        processed_body = """"${{1:-}}" : {}""".format((body[0]).text_content())
+    else:
+        processed_body = """"${{1:-}}" : {}""".format((body))
 
     template = """
     <!-- Auto-generated from {} -->
@@ -35,5 +38,5 @@ def transform(template):
     return template \
         .replace('JSON object', '[]') \
         .replace(': String', '""') \
-        .replace(': Integer', '')
+        .replace(': Integer', '') \
         .replace(': Boolean', '${true | false}')

@@ -30,10 +30,8 @@ def print_header(snippets_found, headers):
     print('    Snippets founds: ' + Fore.GREEN + '{}\n'.format(snippets_found))
 
 
-def build_index():
+def build_index(toc_uri, elem_expr):
     """Build the main index with key and url for the services."""
-    toc_uri = BASE_HREF + 'aws-template-resource-type-ref.html'
-    elem_expr = '//*[@id="main-col-body"]/div[2]/div/ul/li/a'
     page = requests.get(toc_uri)
     doc = html.fromstring(page.text.decode('utf-8'))
     tree = doc.xpath(elem_expr)
@@ -45,6 +43,7 @@ def build_index():
             arn = e.text_content()
             title = e.text_content().replace('::', '-') \
                 .replace('AWS-', "") \
+                .replace('Fn-', "") \
                 .lower()
             href = e.get('href')
             full_href = BASE_HREF + href
@@ -68,9 +67,6 @@ def generate(index):
         progress.update(percent, 'Creating ' + Fore.GREEN + arn)
         writeToOutput(title, snippet)
     progress.update(percent, 'Generation completed')
-    print('    Snippets generated, have fun.')
-    print('    Got questions or want something on this? '
-          + '    https://github.com/beaknit/cform')
 
 
 def createSnippet(arn, title, href, full_href):
@@ -109,12 +105,50 @@ def writeToOutput(title, snippet):
     out.close()
 
 
+def generate_functions():
+    """Function are a special cases, they're scaterred all over the docs."""
+    toc_functions = [
+                        ('Fn::Select', 'fn-select', '{ "Fn::Select" : [ index, listOfObjects ] }', 'intrinsic-function-reference-select.html', BASE_HREF + 'intrinsic-function-reference-select.html'),
+                        ('Ref', 'ref', '"Ref" : "logicalName"', 'intrinsic-function-reference-ref.html', BASE_HREF + 'intrinsic-function-reference-ref.html'),
+                        ('Fn::Join', 'fn-join', '"Fn::Join" : [ "delimiter", [ comma-delimited list of values ] ]', 'intrinsic-function-reference-join.html', BASE_HREF + 'intrinsic-function-reference-join.html'),
+                        ('Fn::GetAZs', 'fn-getAZs', '"Fn::GetAZs" : "region"', 'intrinsic-function-reference-getavailabilityzones.html', BASE_HREF + 'intrinsic-function-reference-getavailabilityzones.html'),
+                        ('Fn::GetAtt', 'fn-getatt', '"Fn::GetAtt" : [ "logicalNameOfResource", "attributeName" ]', 'intrinsic-function-reference-getatt.html', BASE_HREF + 'intrinsic-function-reference-getatt.html'),
+                        ('Fn::FindInMap', 'fn-findInMap', '"Fn::FindInMap" : [ "MapName", "TopLevelKey", "SecondLevelKey"]', 'intrinsic-function-reference-findinmap.html', BASE_HREF + 'intrinsic-function-reference-findinmap.html')
+                    ]
+    i = 0
+    percent = 0
+    progress = ProgressBar()
+    progress.update(i, 'Generating functions')
+    total = len(toc_functions)
+
+    print('    Functions found: ' + Fore.GREEN + str(total))
+
+    for v in toc_functions:
+        (arn, title, body, href, full_href) = v
+        writeToOutput(title, build_with_template(arn, title, body, full_href))
+        i += 1
+        percent = i * 100 / total
+        progress.update(percent, 'Creating ' + Fore.GREEN + arn)
+
+    progress.update(percent, 'Generation completed')
+
+
 def main():
     """Main doc generation."""
     init(autoreset=True)  # colorama
-    index = build_index()
+
+    # build topics
+    toc_uri = BASE_HREF + 'aws-template-resource-type-ref.html'
+    elem_expr = '//*[@id="main-col-body"]/div[2]/div/ul/li/a'
+    index = build_index(toc_uri, elem_expr)
     generate(index)
-    # safedebug(index, 'AWS::SSM::Document')
+
+    # build functions
+    generate_functions()
+    print('\n    Snippets generated, have fun.')
+    print('    Got questions or want something on this? '
+          + '    https://github.com/beaknit/cform')
+
 
 if __name__ == "__main__":
     main()

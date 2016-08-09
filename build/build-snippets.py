@@ -61,11 +61,11 @@ def generate(index):
     progress.update(i, 'Generating snippets')
     for k, v in index.iteritems():
         (arn, title, href, full_href) = v
-        # snippet = createSnippet(arn, title, href, full_href)
+        snippet = createSnippet(arn, title, href, full_href)
         i += 1
         percent = i * 100 / total
         progress.update(percent, 'Creating ' + Fore.GREEN + arn)
-        # writeToOutput(title, snippet)
+        writeToOutput(title, snippet)
     progress.update(percent, 'Snippets completed')
 
 

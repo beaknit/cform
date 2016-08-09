@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 
 import requests
 import os
+import sys
 from collections import OrderedDict
 from templating import build_with_template
 from lxml import html
@@ -77,6 +78,10 @@ def createSnippet(arn, title, href, full_href):
     if (arn == 'AWS::SDB::Domain'):
         elem_expr = '//*[@id="main-col-body"]/div/pre'
 
+    # oddly addition
+    if (arn == 'AWS::CertificateManager::Certificate'):
+        elem_expr = '//*[@id="JSON"]/pre/code'
+
     page = requests.get(full_href)
     doc = html.fromstring(page.text)
     tree = doc.xpath(elem_expr)
@@ -125,10 +130,10 @@ def generate_functions():
 
     for v in toc_functions:
         (arn, title, body, href, full_href) = v
-        writeToOutput(title, build_with_template(arn, title, body, full_href))
         i += 1
         percent = i * 100 / total
         progress.update(percent, 'Creating ' + Fore.GREEN + arn)
+        writeToOutput(title, build_with_template(arn, title, body, full_href))
 
     progress.update(percent, 'Functions generated.')
 
@@ -141,6 +146,8 @@ def main():
     toc_uri = BASE_HREF + 'aws-template-resource-type-ref.html'
     elem_expr = '//*[@id="main-col-body"]/div[2]/div/ul/li/a'
     index = build_index(toc_uri, elem_expr)
+    # safedebug(index, 'AWS::AutoScaling::ScheduledAction')
+    # sys.exit(0)
     generate(index)
 
     # build functions

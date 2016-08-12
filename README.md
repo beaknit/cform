@@ -17,3 +17,14 @@ CForm is now available via the Sublime Text package control.  See https://packag
 6.  Save it with the extension `cform`, `template` or `cloudformation` and run it through the CloudFormation console
 7.  Profit
 
+# Updating the snippets
+
+## Requirements
+
+1. You will need ```Python 2.7.10+```
+2. Run ```pip install -r build/requirements.txt```
+
+## Updating the docs from the latest
+
+1. Go inside the build dir from the comand line
+2. Run ```rm -rf *.pyc && python build-snippets.py```
